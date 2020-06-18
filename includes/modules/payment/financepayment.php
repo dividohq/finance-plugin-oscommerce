@@ -43,6 +43,13 @@ class financepayment {
      * @var boolean
      */
     var $enabled;
+
+    /**
+     * A string defining the current plugin version
+     *
+     * @var string
+     */
+    var $plugin_version;
     /**
      * vars
      */
@@ -77,6 +84,7 @@ class financepayment {
         $this->enabled = ((MODULE_PAYMENT_FINANCEPAYMENT_STATUS == 'True') ? true : false);
         $this->sort_order = MODULE_PAYMENT_FINANCEPAYMENT_SORT_ORDER;
         $this->awaiting_status_name = 'Awaiting Finance response';
+        $this->plugin_version ='1.3.0';
 
         // only run api key validation check if it exists
         if(MODULE_PAYMENT_FINANCEPAYMENT_APIKEY != "MODULE_PAYMENT_FINANCEPAYMENT_APIKEY" && !empty(MODULE_PAYMENT_FINANCEPAYMENT_APIKEY) ){
@@ -443,6 +451,10 @@ class financepayment {
             'metadata' => array(
                 'order_id' => $order_id,
                 'cart_id' => $cart_id,
+                'ecom_platform'         => 'oscommerce',
+                'ecom_platform_version' => PROJECT_VERSION,
+                'ecom_base_url'         => htmlspecialchars_decode($checkout_url),
+                'plugin_version'        => $this->plugin_version
             ),
             'customer' => array(
                 'firstName'    => $firstName,

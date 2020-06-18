@@ -67,7 +67,7 @@ class FinanceApi
             ->withOrderItems($request_data['products'])
             ->withDepositAmount($request_data['deposit_amount'])
             ->withFinalisationRequired( false )
-            ->withMerchantReference('')
+            ->withMerchantReference(strval($request_data['metadata']['order_id']))
             ->withUrls([
                 'merchant_redirect_url' => $request_data['redirect_url'],
                 'merchant_checkout_url' => $request_data['checkout_url'],

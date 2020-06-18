@@ -47,6 +47,11 @@ http://integrations.divido.com/oscommerce/
 
 
  == Changelog ==
+Version 1.3
+ - Fix - Activations
+ - Update Metadata to consistent format
+ - Set merchant_reference
+
 Version 1.2
  - Fix - Round to nearest penny
  - Rename default Finance Payment module's title to "Pay in instalments"
